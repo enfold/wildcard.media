@@ -1,4 +1,5 @@
-from zope.interface import implements, implementer, implementsOnly
+from zope.interface import implementer
+from zope.interface import implementer_only
 from zope.component import adapter, getMultiAdapter
 from z3c.form.interfaces import IFieldWidget, IFormLayer, IDataManager
 from z3c.form.widget import FieldWidget
@@ -20,8 +21,9 @@ class IStreamNamedFileWidget(INamedFileWidget):
     pass
 
 
+@implementer_only(IStreamNamedFileWidget)
 class StreamNamedFileWidget(NamedFileWidget):
-    implementsOnly(IStreamNamedFileWidget)
+    pass
 
 
 @implementer(IFieldWidget)

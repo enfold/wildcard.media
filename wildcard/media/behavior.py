@@ -15,7 +15,7 @@ from z3c.form.interfaces import IAddForm, IEditForm
 from zope import schema
 from zope.component import adapts
 from zope.component.hooks import getSite
-from zope.interface import alsoProvides, implements
+from zope.interface import alsoProvides, implementer
 from zope.interface import Invalid, invariant
 
 try:
@@ -231,8 +231,8 @@ class BaseAdapter(object):
 _marker = object()
 
 
+@implementer(IVideo)
 class Video(BaseAdapter):
-    implements(IVideo)
     adapts(IDexterityContent)
 
     def __init__(self, context):
@@ -287,8 +287,8 @@ class Video(BaseAdapter):
         upload_video_to_youtube = BasicProperty(IVideo['upload_video_to_youtube'])
 
 
+@implementer(IAudio)
 class Audio(BaseAdapter):
-    implements(IAudio)
     adapts(IDexterityContent)
 
     def __init__(self, context):
