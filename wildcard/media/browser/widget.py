@@ -6,7 +6,6 @@ from plone.formwidget.namedfile.interfaces import INamedFileWidget
 from plone.formwidget.namedfile.widget import NamedFileWidget, Download
 from plone.namedfile.interfaces import INamedFileField
 from plone.namedfile.utils import get_contenttype
-from plone.app.blob.field import BlobWrapper
 
 from Acquisition import aq_inner
 from zope.publisher.interfaces import NotFound
@@ -57,8 +56,5 @@ class MediaStream(Download):
             raise NotFound(self, self.request)
 
         disable_xsendfile(self.request)
-        content_type = get_contenttype(file_)
-        blob_wrapper = BlobWrapper(content_type)
-        blob_wrapper.setBlob(file_)
 
-        return blob_wrapper.index_html(self.request)
+        return super(MediaStream, self).__call__()
