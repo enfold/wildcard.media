@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from plone import api
 from plone.namedfile.file import NamedBlobImage
-from wildcard.media.async import (
+from wildcard.media.asynchronous import (
     convertVideoFormats,
     uploadToYouTube,
     removeFromYouTube,
