@@ -48,11 +48,11 @@ class AudioIntegrationTest(unittest.TestCase):
     def test_schema(self):
         fti = self.getFti()
         schema = fti.lookupSchema()
-        self.assertEqual(schema.getName(), 'plone_0_WildcardAudio')
+        self.assertTrue(schema.getName().endswith('0_WildcardAudio'))
 
     def test_fti(self):
         fti = self.getFti()
-        self.assertNotEquals(None, fti)
+        self.assertNotEqual(None, fti)
 
     def test_factory(self):
         fti = self.getFti()
