@@ -12,7 +12,7 @@ from plone.dexterity.interfaces import IDexterityFTI
 
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
-from plone.testing.z2 import Browser
+from plone.testing.zope import Browser
 
 from wildcard.media.interfaces import IAudioEnabled
 
@@ -82,7 +82,7 @@ class AudioIntegrationTest(unittest.TestCase):
     def test_primary_field(self):
         audio = self.create('audio')
         info = IPrimaryFieldInfo(audio)
-        self.assertEquals(info.fieldname, 'audio_file')
+        self.assertEqual(info.fieldname, 'audio_file')
         self.assertTrue(IPrimaryField.providedBy(info.field))
 
 

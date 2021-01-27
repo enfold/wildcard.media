@@ -12,7 +12,7 @@ from plone.dexterity.interfaces import IDexterityFTI
 
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
-from plone.testing.z2 import Browser
+from plone.testing.zope import Browser
 
 from wildcard.media.behavior import IVideo
 from wildcard.media.interfaces import IVideoEnabled
@@ -122,7 +122,7 @@ class VideoIntegrationTest(unittest.TestCase):
     def test_primary_field(self):
         video = self.create('video')
         info = IPrimaryFieldInfo(video)
-        self.assertEquals(info.fieldname, 'video_file')
+        self.assertEqual(info.fieldname, 'video_file')
         self.assertTrue(IPrimaryField.providedBy(info.field))
 
     def test_file_field(self):
