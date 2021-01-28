@@ -117,7 +117,7 @@ try:
     avconv = AVConvProcess()
 except IOError:
     avconv = None
-    logger.warn('ffmpeg not installed. wildcard.video will not function')
+    logger.warning('ffmpeg not installed. wildcard.video will not function')
 
 
 class AVProbeProcess(BaseSubProcess):
@@ -148,7 +148,7 @@ try:
     avprobe = AVProbeProcess()
 except IOError:
     avprobe = None
-    logger.warn('avprobe not installed. wildcard.video will not function')
+    logger.warning('avprobe not installed. wildcard.video will not function')
 
 
 def switchFileExt(filename, ext):
@@ -167,10 +167,10 @@ def _convertFormat(context):
     # keep original file, but not if convert action is used
     action_called = getattr(context, 'convert_action_called', False)
     if action_called:
-        logger.warn('Convert action called for {}'.format(context.absolute_url_path()))
+        logger.warning('Convert action called for {}'.format(context.absolute_url_path()))
         context.convert_action_called = False
     else:
-        logger.warn('Saving original video for {}'.format(context.absolute_url_path()))
+        logger.warning('Saving original video for {}'.format(context.absolute_url_path()))
         context.video_file_original = video
 
     try:
@@ -178,7 +178,7 @@ def _convertFormat(context):
         bfilepath = opened.name
         opened.close()
     except IOError:
-        logger.warn('error opening blob file')
+        logger.warning('error opening blob file')
         return
 
     tmpdir = mkdtemp()
@@ -187,8 +187,8 @@ def _convertFormat(context):
 
     try:
         metadata = avprobe.info(tmpfilepath)
-    except:
-        logger.warn('not a valid video format')
+    except Exception:
+        logger.warning('not a valid video format')
         return
     context.metadata = metadata
 
@@ -235,12 +235,12 @@ def _convertFormat(context):
             context.image = NamedBlobImage(data, filename=u'screengrab.png')
             fi.close()
     except:
-        logger.warn('error getting thumbnail from video')
+        logger.warning('error getting thumbnail from video')
     rmtree(tmpdir)
 
 
 def convertVideoFormats(context):
     if not avprobe or not avconv:
-        logger.warn('can not run wildcard.media conversion. No avconv')
+        logger.warning('can not run wildcard.media conversion. No avconv')
         return
     _convertFormat(context)
