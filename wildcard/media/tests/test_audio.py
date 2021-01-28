@@ -109,11 +109,12 @@ class AudioFunctionalTest(unittest.TestCase):
         file_path = os.path.join(test_file_dir, "test.mp3")
         file_ctl = self.browser.getControl(
             name='form.widgets.IAudio.audio_file')
-        file_ctl.add_file(open(file_path), 'audio/mp3', 'test.mp3')
-        self.browser.getControl('Save').click()
-        self.assertTrue('My audio' in self.browser.contents)
-        self.assertTrue('This is my audio' in self.browser.contents)
-        self.assertTrue('<audio' in self.browser.contents)
-        self.assertIn(
-            '++widget++form.widgets.IAudio.audio_file/@@stream',
-            self.browser.contents)
+        with open(file_path, 'rb') as fp:
+            file_ctl.add_file(fp, 'audio/mp3', 'test.mp3')
+            self.browser.getControl('Save').click()
+            self.assertTrue('My audio' in self.browser.contents)
+            self.assertTrue('This is my audio' in self.browser.contents)
+            self.assertTrue('<audio' in self.browser.contents)
+            self.assertIn(
+                '++widget++form.widgets.IAudio.audio_file/@@stream',
+                self.browser.contents)

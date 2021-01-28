@@ -161,7 +161,11 @@ class GoogleAPI(object):
             'grant_type': 'authorization_code'
         }
         resp = requests.post(url, data=data)
-        self.registry['google_auth_data'] = unicode(resp.content)
+        auth_data = resp.content
+        if isinstance(auth_date, bytes):
+            auth_data = auth_data.decode('UTF-8')
+
+        self.registry['google_auth_data'] = auth_data
         self.req.response.redirect(self.site.absolute_url())
 
     def refresh_access_token(self):
@@ -174,7 +178,10 @@ class GoogleAPI(object):
         resp = requests.post('https://accounts.google.com/o/oauth2/token',
                              data=params)
         self.auth_data.update(resp.json())
-        self.registry['google_auth_data'] = unicode(json.dumps(self.auth_data))
+        auth_data = json.dumps(self.auth_data)
+        if isinstance(auth_data, bytes):
+            auth_data = auth_data.decode('UTF-8')
+        self.registry['google_auth_data'] = auth_data
 
     @property
     def authorized(self):

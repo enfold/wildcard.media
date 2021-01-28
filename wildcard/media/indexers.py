@@ -7,11 +7,11 @@ def _unicode_save_string_concat(*args):
     concats args with spaces between and returns utf-8 string, it does not
     matter if input was unicode or str
     """
-    result = ''
+    result = b''
     for value in args:
-        if isinstance(value, unicode):
+        if not isinstance(value, bytes):
             value = value.encode('utf-8', 'replace')
-        result = ' '.join((result, value))
+        result = b' '.join((result, value))
     return result
 
 

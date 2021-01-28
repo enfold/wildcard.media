@@ -135,14 +135,14 @@ class AVProbeProcess(BaseSubProcess):
         cmd = [self.binary, filepath]
         result = {}
         for line in self._run_command(cmd, or_error=True).splitlines():
-            if ':' not in line:
+            if b':' not in line:
                 continue
-            name, data = line.split(':', 1)
+            name, data = line.split(b':', 1)
             data = data.strip()
             if not data:
                 continue
             name = name.strip().lower()
-            if ' ' in name:
+            if b' ' in name:
                 continue
             result[name] = data
         return result
@@ -222,7 +222,7 @@ def _convertFormat(context):
                 logger.exception('error converting to %s' % video_type)
                 continue
             if os.path.exists(output_filepath):
-                fi = open(output_filepath)
+                fi = open(output_filepath, 'rb')
                 namedblob = NamedBlobFile(
                     fi, filename=switchFileExt(video.filename,  video_type))
                 setattr(context, fieldname, namedblob)

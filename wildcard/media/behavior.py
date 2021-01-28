@@ -220,7 +220,7 @@ class BasicProperty(object):
 class BaseAdapter(object):
 
     def _get_metadata(self):
-        return unicode(json.dumps(getattr(self.context, 'metadata', {})))
+        return json.dumps(getattr(self.context, 'metadata', {})).decode('UTF-8')
 
     def _set_metadata(self, value):
         pass
