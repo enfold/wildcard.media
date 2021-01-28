@@ -4,7 +4,6 @@ try:
 except ImportError:
     tasks = None
 
-from wildcard.media import pasync
 from wildcard.media import convert
 from wildcard.media import config as media_config
 try:
@@ -22,9 +21,6 @@ def _run(obj, func):
         # collective.celery is installed
         tfunc = getattr(tasks, func.__name__)
         tfunc.apply_async(args=[obj], kwargs={}, countdown=ASYNC_DELAY)
-    elif media_config.USE_ASYNC and pasync.asyncInstalled():
-        # plone.app.async installed
-        pasync.queueJob(obj, func)
     else:
         func(obj)
 
