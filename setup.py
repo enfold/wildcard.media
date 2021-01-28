@@ -11,10 +11,16 @@ setup(name='wildcard.media',
           open(os.path.join("docs", "HISTORY.txt")).read()
       ),
       classifiers=[
-          "Framework :: Plone",
-          "Programming Language :: Python",
-          "Framework :: Plone :: 4.3",
-          "Framework :: Plone :: 5.0"
+          'Framework :: Plone',
+          'Framework :: Plone :: 5.2',
+          'Programming Language :: Python :: 2',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: 3.6',
+          'Programming Language :: Python :: 3.7',
+          'Programming Language :: Python :: 3.8',
+          'Programming Language :: Python :: Implementation :: CPython'
       ],
       keywords='video audio media plone tiny html5 mediaelement',
       author='Nathan Van Gheem',
