@@ -28,6 +28,7 @@ setup(name='wildcard.media',
       setup_requires=['setuptools-git'],
       install_requires=[
           'setuptools',
+          'six',
           'plone.transformchain',
           'plone.app.dexterity',
           'plone.autoform',

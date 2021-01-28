@@ -8,6 +8,9 @@ from logging import getLogger
 from tempfile import mkdtemp
 from shutil import copyfile, rmtree
 import shlex
+
+import six
+
 from wildcard.media.config import getFormat
 from plone.namedfile import NamedBlobFile, NamedBlobImage
 from wildcard.media.settings import GlobalSettings
@@ -47,7 +50,7 @@ class BaseSubProcess(object):
         return None
 
     def _run_command(self, cmd, or_error=False):
-        if isinstance(cmd, basestring):
+        if isinstance(cmd, six.string_types):
             cmd = cmd.split()
         cmdformatted = ' '.join(cmd)
         logger.info("Running command %s" % cmdformatted)

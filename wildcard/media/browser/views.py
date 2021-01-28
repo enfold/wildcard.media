@@ -1,6 +1,8 @@
 import urllib
 import re
 
+from six.moves.urllib.parse import quote_plus
+
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as pmf
 from Products.Five import BrowserView
@@ -207,7 +209,7 @@ class Utils(MediaView):
     def mp4_url_quoted(self):
         url = self.mp4_url()
         if url:
-            return urllib.quote_plus(url)
+            return quote_plus(url)
         else:
             return url
 
@@ -215,7 +217,7 @@ class Utils(MediaView):
     def image_url_quoted(self):
         url = self.image_url()
         if url:
-            return urllib.quote_plus(url)
+            return quote_plus(url)
         else:
             return url
 
