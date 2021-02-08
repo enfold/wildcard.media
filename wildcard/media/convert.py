@@ -23,6 +23,7 @@ logger = getLogger('wildcard.media')
 class BaseSubProcess(object):
     default_paths = ['/bin', '/usr/bin', '/usr/local/bin']
     bin_name = ''
+    alt_bin_name = ''
 
     if os.name == 'nt':
         close_fds = False
@@ -46,6 +47,11 @@ class BaseSubProcess(object):
             fullname = os.path.join(directory, self.bin_name)
             if os.path.exists(fullname):
                 return fullname
+
+        for directory in path:
+            alt_fullname = os.path.join(directory, self.alt_bin_name)
+            if os.path.exists(alt_fullname):
+                return alt_fullname
 
         return None
 
@@ -82,8 +88,10 @@ class AVConvProcess(BaseSubProcess):
     """
     if os.name == 'nt':
         bin_name = 'avconv.exe'
+        alt_bin_name = 'ffmpeg.exe'
     else:
         bin_name = 'avconv'
+        alt_bin_name = 'ffmpeg'
 
     def convert(self, filepath, outputfilepath, video_type, video):
         portal = getSite()
@@ -128,8 +136,10 @@ class AVProbeProcess(BaseSubProcess):
     """
     if os.name == 'nt':
         bin_name = 'avprobe.exe'
+        alt_bin_name = 'ffprobe.exe'
     else:
         bin_name = 'avprobe'
+        alt_bin_name = 'ffprobe'
 
     def info(self, filepath):
         cmd = [self.binary, filepath]
