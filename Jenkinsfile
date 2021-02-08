@@ -14,10 +14,10 @@ node {
   }
 
   statusSuccess {
-    slackSend(message: "${JOB_NAME} - Build #${BUILD_NUMBER} - ${package_name} tests passed")
+    slackSend(color: "good", channel: "#afsoc", message: "${JOB_NAME} - Build #${BUILD_NUMBER} - ${package_name} tests passed")
   }
   statusFailed {
-    slackSend(message: "${JOB_NAME} - Build #${BUILD_NUMBER} - ${package_name} tests failed! Check console output at ${BUILD_URL} to view the results.")
+    slackSend(color: "danger", channel: "#afsoc", message: "${JOB_NAME} - Build #${BUILD_NUMBER} - ${package_name} tests failed! Check console output at ${BUILD_URL} to view the results.")
   }
 }
 
