@@ -6,7 +6,7 @@ node {
     stage('Tests') {
       checkout scm
       sh "python3 -m venv ."
-      sh "wget https://dist.plone.org/release/5-latest/requirements.txt"
+      sh "wget -N -q https://dist.plone.org/release/5-latest/requirements.txt"
       sh "./bin/pip install -r requirements.txt"
       sh "./bin/buildout -Nc buildout.cfg"
       sh "./bin/test -s ${package_name}"
