@@ -65,7 +65,10 @@ class VideoView(BrowserView):
         - 'https://www.youtube.com/watch?v=VIDEO_ID'
         - 'https://www.youtube.com/embed/2Lb2BiUC898'
         """
-        video_behavior = IVideo(self.context)
+        try:
+            video_behavior = IVideo(self.context)
+        except TypeError:
+            video_behavior = None
         if not video_behavior:
             return ""
         video_id = video_behavior.get_youtube_id_from_url()
