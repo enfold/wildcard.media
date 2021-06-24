@@ -15,6 +15,7 @@ It integrates the HTML5 media player `mediaelementjs`_ and uses
 
 .. _mediaelementjs: http://mediaelementjs.com
 .. _plone.app.async: https://pypi.python.org/pypi/plone.app.async
+.. _collective.celery: https://pypi.python.org/pypi/collective.celery
 
 Features
 --------
