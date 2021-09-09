@@ -4,7 +4,7 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add names to async tasks.
 
 
 2.1.0 (2021-06-24)
