@@ -33,7 +33,7 @@ setup(name='wildcard.media',
       namespace_packages=['wildcard'],
       include_package_data=True,
       zip_safe=False,
-      setup_requires=['setuptools-git'],
+      setup_requires=[],
       install_requires=[
           'setuptools',
           'six',

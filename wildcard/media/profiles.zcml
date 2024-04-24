@@ -89,4 +89,13 @@
       profile="wildcard.media:default"
       />
 
+   <genericsetup:upgradeStep
+      title="Upgrade to version 2.1.1"
+      source="2003"
+      destination="2004"
+      handler="wildcard.media.upgrades.upgrade_to_2004"
+      sortkey="1"
+      profile="wildcard.media:default"
+      />
+
 </configure>
