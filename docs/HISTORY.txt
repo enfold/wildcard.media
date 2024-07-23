@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.2 (unreleased)
+2.1.2 (2024-07-23)
 ------------------
 
 - Fix url for mediaelement player controls svg image.
