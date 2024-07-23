@@ -4,6 +4,9 @@ Changelog
 2.1.3 (unreleased)
 ------------------
 
+- Back out bundling resources in default plone bundle.
+  [JL 2024-07-23]
+
 - Back out mediaelement player controls svg image fix.
   [JL 2024-07-23]
 

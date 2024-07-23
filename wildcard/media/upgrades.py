@@ -53,3 +53,9 @@ def upgrade_to_2004(context):
     setup = getToolByName(context, 'portal_setup')
     if getFSVersionTuple()[0] != 4:
         setup.runImportStepFromProfile(PROFILE_ID_PLONE5, 'plone.app.registry')
+
+
+def upgrade_to_2005(context):
+    setup = getToolByName(context, 'portal_setup')
+    if getFSVersionTuple()[0] != 4:
+        setup.runImportStepFromProfile(PROFILE_ID_PLONE5, 'plone.app.registry')
