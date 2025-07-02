@@ -13,7 +13,6 @@
 
   <include package="plone.behavior" file="meta.zcml"/>
   <include package="plone.app.dexterity" />
-  <include package="five.globalrequest" />
 
   <permission
       id="wildcard.media.AddWildcardVideo"

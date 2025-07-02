@@ -43,7 +43,6 @@ setup(name='wildcard.media',
           'plone.app.textfield',
           'plone.rfc822',
           'plone.supermodel>=1.1',
-          'five.globalrequest',
           'plone.api',
           'requests'
       ],
