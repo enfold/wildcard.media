@@ -4,6 +4,11 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
+- Run conversions and YouTube tasks with collective.procrastinate instead of
+  collective.celery (``procrastinate`` extra, ``[procrastinate_tasks]`` entry
+  point).
+  [FP 2026-10-28]
+
 - Don't require five.globalrequest
   [JL 2025-07-02]
 

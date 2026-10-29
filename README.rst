@@ -15,7 +15,6 @@ It integrates the HTML5 media player `mediaelementjs`_ and uses
 
 .. _mediaelementjs: http://mediaelementjs.com
 .. _plone.app.async: https://pypi.python.org/pypi/plone.app.async
-.. _collective.celery: https://pypi.python.org/pypi/collective.celery
 
 Features
 --------
@@ -27,7 +26,8 @@ Features
 - Be able to add video from TinyMCE by adding a link to the audio or video
   objects and then adding one of the available Audio and Video TinyMCE styles.
 - Integration with `plone.app.async`_ for conversions if installed
-- Integration wtih `collective.celery`_ for conversion if installed
+- Integration with ``collective.procrastinate`` for conversion if installed
+  (``procrastinate`` extra; ``[procrastinate_tasks]`` entry point)
 - Plone 4.3 syndication support
 - Transcript data
 - Youtube URL  (in case you want the video streamed from Youtube)

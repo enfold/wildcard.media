@@ -12,14 +12,12 @@ setup(name='wildcard.media',
       ),
       classifiers=[
           'Framework :: Plone',
-          'Framework :: Plone :: 5.2',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 2.7',
+          'Framework :: Plone :: 6.1',
           'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.5',
-          'Programming Language :: Python :: 3.6',
-          'Programming Language :: Python :: 3.7',
-          'Programming Language :: Python :: 3.8',
+          'Programming Language :: Python :: 3.10',
+          'Programming Language :: Python :: 3.11',
+          'Programming Language :: Python :: 3.12',
+          'Programming Language :: Python :: 3.13',
           'Programming Language :: Python :: Implementation :: CPython',
           'License :: OSI Approved :: GNU General Public License (GPL)',
           'Development Status :: 5 - Production/Stable',
@@ -53,7 +51,10 @@ setup(name='wildcard.media',
           'youtube': [
               'requests',
               'oauthlib'
-          ]
+          ],
+          'procrastinate': [
+              'collective.procrastinate',
+          ],
       },
       entry_points="""
       # -*- Entry points: -*-
@@ -61,7 +62,7 @@ setup(name='wildcard.media',
       [z3c.autoinclude.plugin]
       target = plone
 
-      [celery_tasks]
+      [procrastinate_tasks]
       media = wildcard.media.tasks
       """,
       )

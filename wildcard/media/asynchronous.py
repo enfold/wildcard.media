@@ -1,5 +1,5 @@
 try:
-    import collective.celery  # noqa
+    import collective.procrastinate  # noqa
     from wildcard.media import tasks
 except ImportError:
     tasks = None
@@ -18,7 +18,7 @@ from zope.globalrequest import getRequest
 
 def _run(obj, func):
     if media_config.USE_ASYNC and tasks:
-        # collective.celery is installed
+        # collective.procrastinate is installed
         tfunc = getattr(tasks, func.__name__)
         tfunc.apply_async(args=[obj], kwargs={}, countdown=ASYNC_DELAY)
     else:

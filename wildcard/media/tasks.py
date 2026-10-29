@@ -1,5 +1,5 @@
 from ZODB.POSException import POSKeyError
-from collective.celery import task
+from collective.procrastinate import task
 from wildcard.media import convert
 try:
     from wildcard.media import youtube
